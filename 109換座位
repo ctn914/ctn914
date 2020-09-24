@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <time.h>
+int
+main ()
+{
+  int i, j, n[35];
+  srand (time (NULL));
+  for (i = 1; i <= 36; i++)
+    {
+      do
+	{
+	  n[i - 1] = rand () % 36 + 1;
+
+	  for (j = 1; j < i; j++)
+	    {
+	      if (n[i - 1] == n[j - 1])
+		{
+		  break;
+		}
+	    }
+	}
+      while (j != i);
+    }
+  printf ("------------講台-------------\n");
+  int x = 0;
+  for (x = 0; x < 36; x++)
+    {
+      if (x == 6 || x == 12 || x == 18 || x == 24 || x == 30 || x == 36)
+	{
+	  printf ("\n");
+	  printf ("%5d|", n[x]);
+	}
+      else
+	{
+	  printf ("%5d|", n[x]);
+	}
+    }
+  return 0;
+}
